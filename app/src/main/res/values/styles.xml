@@ -10,4 +10,10 @@
         <item name="windowActionBar">false</item>
     </style>
 
+    <!--  TabLayout 字体  -->
+    <style name="tabTextStyle">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
 </resources>

@@ -35,7 +35,6 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:button="@null"
-
                 />
 
             <RadioButton
@@ -43,7 +42,6 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#cccccc"
                 android:button="@null" />
 
             <RadioButton
@@ -52,7 +50,6 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:button="@null"
-
                 />
 
             <RadioButton
@@ -60,8 +57,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#cccccc"
                 android:button="@null" />
+
         </RadioGroup>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
