@@ -19,7 +19,7 @@ public class PostAndGet {
         String result = "";
 
         try {
-            URL url = new URL(Constants.path1);
+            URL url = new URL(path);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setRequestProperty("accept", "application/json");
@@ -30,21 +30,28 @@ public class PostAndGet {
             if (httpURLConnection.getResponseCode() == 200) {
                 InputStream inputStream = httpURLConnection.getInputStream();
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-                Log.e("getHttp", "123");
+                Log.e("请求数据1---->", "Code"+httpURLConnection.getResponseCode());
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
                 StringBuffer stringBuffer = new StringBuffer();
                 String str;
                 while ((str = bufferedReader.readLine()) != null) {
                     stringBuffer.append(str);
-                    Log.e("读取",str);
+
+                    Log.e("请求数据2---->", str);
+
                 }
+                result=stringBuffer.toString();
 
             } else {
-                Log.e("getHttp", "2354234" + httpURLConnection.getResponseCode());
+
+                Log.e("请求数据3---->", "Code"+httpURLConnection.getResponseCode());
+
             }
 
         } catch (Exception e) {
-            Log.e("getHttp", e.toString());
+//            Log.e("getHttp", e.toString());
+            Log.e("请求数据4---->",  e.toString());
+
         }
 
         return result;

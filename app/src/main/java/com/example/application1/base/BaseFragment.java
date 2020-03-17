@@ -17,7 +17,7 @@ import androidx.fragment.app.Fragment;
 public abstract class BaseFragment extends Fragment {
 
 
-    private boolean isViewPre = false;
+    private boolean isViewCreate = false;
     private boolean isVisible = false;
 
     @Nullable
@@ -25,8 +25,8 @@ public abstract class BaseFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(getLayoutId(), container, false);
         initView(view);
-        isViewPre = true;
-//        loadData();
+        isViewCreate = true;
+        loadData();
         return view;
     }
 
@@ -36,18 +36,18 @@ public abstract class BaseFragment extends Fragment {
 
     public abstract void initData();
 
-//    public void loadData(){
-//        if(isVisible&&isViewPre){
-//            initData();
-//        }
-//    }
+    public void loadData(){
+        if(isVisible&&isViewCreate){
+            initData();
+        }
+    }
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        if (isVisibleToUser && isViewPre) {
-            initData();
+        if (isVisibleToUser) {
             isVisible = true;
+            loadData();
         }
     }
 
@@ -59,6 +59,6 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        isViewPre = false;
+        isViewCreate = false;
     }
 }

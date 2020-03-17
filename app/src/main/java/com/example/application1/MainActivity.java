@@ -50,13 +50,12 @@ public class MainActivity extends AppCompatActivity {
 
         changePage(0);
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                PostAndGet.doGetHttp(Constants.path);
-            }
-        }).start();
-
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                PostAndGet.doGetHttp(Constants.path);
+////            }
+//        }).start();
     }
 
     public void changePage(int index) {
