@@ -2,27 +2,23 @@ package com.example.application1.home_fragment;
 
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.application1.PostAndGet;
 import com.example.application1.R;
 import com.example.application1.adapter.RecommendAdapter;
 import com.example.application1.base.BaseFragment;
-import com.google.android.flexbox.AlignItems;
-import com.google.android.flexbox.FlexDirection;
-import com.google.android.flexbox.FlexWrap;
-import com.google.android.flexbox.FlexboxLayoutManager;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.LogRecord;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import model.RecommendModel;
+
 
 //getLayoutId
 //initView
