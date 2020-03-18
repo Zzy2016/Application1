@@ -13,10 +13,8 @@ import com.example.application1.home_fragment.HomeFragment1;
 import com.example.application1.home_fragment.HomeFragment2;
 import com.example.application1.home_fragment.HomeFragment3;
 import com.google.android.material.tabs.TabLayout;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -38,7 +36,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.e("HomeFragment------", "onCreate");
+
         homeAdapter = new HomeAdapter(getChildFragmentManager());
         fragmentList = new ArrayList<>();
         fragmentList.add(new HomeFragment1());
