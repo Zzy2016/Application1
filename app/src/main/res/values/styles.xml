@@ -13,7 +13,10 @@
     <!--  TabLayout 字体  -->
     <style name="tabTextStyle">
         <item name="android:textSize">25sp</item>
-        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textColor">@drawable/text_color</item>
+        <item name="android:text">Tab</item>
+        <item name="android:gravity">center</item>
+
     </style>
 
 </resources>

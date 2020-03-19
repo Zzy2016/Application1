@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         rbHome3.setOnClickListener(onClickListener);
         rbHome4.setOnClickListener(onClickListener);
 
+        rbHome1.setChecked(true);
 
         changePage(0);
 
