@@ -1,4 +1,4 @@
-package com.example.application1;
+package com.example.application1.activity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,10 +6,11 @@ import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.example.application1.R;
+import com.example.application1.fragments.Fragment0;
 import com.example.application1.fragments.Fragment2;
 import com.example.application1.fragments.Fragment3;
-import com.example.application1.fragments.Home1Fragment;
-import com.example.application1.fragments.HomeFragment;
+import com.example.application1.fragments.Fragment1;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -23,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
     RadioButton rbHome1, rbHome2, rbHome3, rbHome4;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
-    HomeFragment homeFragment;
-    Home1Fragment home1Fragment;
+    Fragment0 fragment0;
+    Fragment1 fragment1;
     Fragment2 fragment2;
     Fragment3 fragment3;
     int currentIndex = 0;
@@ -63,18 +64,18 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction = fragmentManager.beginTransaction();
         hideAll(fragmentTransaction);
         if (index == 0) {
-            if (homeFragment == null) {
-                homeFragment = new HomeFragment();
-                fragmentTransaction.add(R.id.fl_content, homeFragment).show(homeFragment).commit();
+            if (fragment0 == null) {
+                fragment0 = new Fragment0();
+                fragmentTransaction.add(R.id.fl_content, fragment0).show(fragment0).commit();
             } else {
-                fragmentTransaction.show(homeFragment).commit();
+                fragmentTransaction.show(fragment0).commit();
             }
         } else if (index == 1) {
-            if (home1Fragment == null) {
-                home1Fragment = new Home1Fragment();
-                fragmentTransaction.add(R.id.fl_content, home1Fragment).show(home1Fragment).commit();
+            if (fragment1 == null) {
+                fragment1 = new Fragment1();
+                fragmentTransaction.add(R.id.fl_content, fragment1).show(fragment1).commit();
             } else {
-                fragmentTransaction.show(home1Fragment).commit();
+                fragmentTransaction.show(fragment1).commit();
             }
         } else if (index == 2) {
             if (fragment2 == null) {
@@ -95,8 +96,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void hideAll(FragmentTransaction fragmentTransaction) {
-        if (homeFragment != null) fragmentTransaction.hide(homeFragment);
-        if (home1Fragment != null) fragmentTransaction.hide(home1Fragment);
+        if (fragment0 != null) fragmentTransaction.hide(fragment0);
+        if (fragment1 != null) fragmentTransaction.hide(fragment1);
         if (fragment2 != null) fragmentTransaction.hide(fragment2);
         if (fragment3 != null) fragmentTransaction.hide(fragment3);
     }

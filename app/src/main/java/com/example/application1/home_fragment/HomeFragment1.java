@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.application1.PostAndGet;
+import com.example.application1.utils.PostAndGet;
 import com.example.application1.R;
 import com.example.application1.adapter.RecommendAdapter;
 import com.example.application1.base.BaseFragment;

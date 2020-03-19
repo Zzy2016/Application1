@@ -23,12 +23,12 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 
-public class HomeFragment extends Fragment {
+public class Fragment0 extends androidx.fragment.app.Fragment {
 
     ImageView imageMenu;
     TabLayout tlTitle;
     ViewPager vpHome;
-    List<Fragment> fragmentList;
+    List<androidx.fragment.app.Fragment> fragmentList;
     HomeAdapter homeAdapter;
     String[] titles = new String[]{"title1", "title2", "title3"};
 
@@ -48,7 +48,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        Log.e("HomeFragment------", "onCreateView");
+        Log.e("Fragment0------", "onCreateView");
         initView(view);
         return view;
     }
@@ -67,7 +67,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
-        Log.e("HomeFragment------", "onHiddenChanged");
+        Log.e("Fragment0------", "onHiddenChanged");
 
     }
 
@@ -79,7 +79,7 @@ public class HomeFragment extends Fragment {
 
         @NonNull
         @Override
-        public Fragment getItem(int position) {
+        public androidx.fragment.app.Fragment getItem(int position) {
             return fragmentList.get(position);
         }
 
