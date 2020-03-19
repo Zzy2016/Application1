@@ -7,11 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.application1.R;
 import com.example.application1.base.BaseFragment;
+import com.example.application1.model.HomeTimeLineModel;
 import com.example.application1.utils.PostAndGet;
 import com.example.application1.utils.SharedPreferenceUtils;
+import com.google.gson.Gson;
 
 import java.io.IOException;
 
@@ -27,21 +30,25 @@ import okhttp3.Response;
 public class Fragment3 extends Fragment {
 
 
-    TextView tv;
 
+    private String token;
+    private String uid;
+    private OkHttpClient okHttpClient;
+    private Request request;
+    private Call call;
+    private String path;
+    private Gson gson;
+    private HomeTimeLineModel homeTimeLineModel;
 
-    String token;
-    String uid;
-    OkHttpClient okHttpClient;
-    Request request;
-    Call call;
-    String path;
-
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        gson = new Gson();
+        homeTimeLineModel = new HomeTimeLineModel();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_fragment3, container, false);
         View view = inflater.inflate(R.layout.fragment_fragment3, container, false);
         token = (String) SharedPreferenceUtils.getData("assess_token", "token");
         uid = (String) SharedPreferenceUtils.getData("uid", "uid");
@@ -53,33 +60,33 @@ public class Fragment3 extends Fragment {
     public void initData() {
         okHttpClient = new OkHttpClient();
         request = new Request.Builder().url(path).get().build();
-        call=okHttpClient.newCall(request);
+        call = okHttpClient.newCall(request);
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                Log.e("----1",e.toString());
+                Log.e("----1", e.toString());
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                Log.e("----0",response.body().string());
+                if (response.isSuccessful()) {
+                    String result = response.body().string();
+                    homeTimeLineModel = gson.fromJson(result, HomeTimeLineModel.class);
+
+
+                } else {
+                    Toast.makeText(getContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
+                }
+                Log.e("----0", response.body().string());
             }
         });
-
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                String result= PostAndGet.doGetHttp(path);
-//                Log.e("-----",result);
-//            }
-//        }).start();
-
     }
 
-    public void initView(View view) {
-        tv = (TextView) view.findViewById(R.id.tv);
 
-        tv.setText(System.currentTimeMillis() + "");
+
+
+    public void initView(View view) {
+
         Log.e("---------", "initView");
         initData();
     }
@@ -90,7 +97,7 @@ public class Fragment3 extends Fragment {
 
         if (!hidden) {
             Log.e("---------", hidden + "");
-            tv.setText(System.currentTimeMillis() + "");
+
             initData();
         }
     }
