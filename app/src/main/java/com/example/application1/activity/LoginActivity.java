@@ -33,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         token = (String) SharedPreferenceUtils.getData("assess_token", "token");
 
 
+
         if (token.equals("token")) {
             ssoHandler = new SsoHandler(LoginActivity.this);
             ssoHandler.authorizeClientSso(new WbAuthListener() {
@@ -87,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
 //            Log.e("login----4", bundle.getString("uid"));
 //            Log.e("login----4", bundle.getString("com.sina.weibo.intent.extra.USER_ICON"));
             SharedPreferenceUtils.putData("assess_token", bundle.getString("access_token"));
+            SharedPreferenceUtils.putData("uid",bundle.getString("uid"));
             Intent intent1 = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent1);
             finish();

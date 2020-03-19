@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.application1.R;
+import com.example.application1.base.BaseFragment;
 import com.example.application1.home_fragment.HomeFragment1;
 import com.example.application1.home_fragment.HomeFragment2;
 import com.example.application1.home_fragment.HomeFragment3;
@@ -23,7 +24,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 
-public class Fragment0 extends androidx.fragment.app.Fragment {
+public class Fragment0 extends BaseFragment {
 
     ImageView imageMenu;
     TabLayout tlTitle;
@@ -44,13 +45,10 @@ public class Fragment0 extends androidx.fragment.app.Fragment {
         fragmentList.add(new HomeFragment3());
     }
 
-    @Nullable
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-        Log.e("Fragment0------", "onCreateView");
-        initView(view);
-        return view;
+    public int getLayoutId() {
+        return R.layout.fragment_home;
     }
 
     public void initView(View view) {
@@ -61,6 +59,11 @@ public class Fragment0 extends androidx.fragment.app.Fragment {
         vpHome = view.findViewById(R.id.vp_home);
         vpHome.setAdapter(homeAdapter);
         tlTitle.setupWithViewPager(vpHome);
+    }
+
+    @Override
+    public void initData() {
+
     }
 
 
