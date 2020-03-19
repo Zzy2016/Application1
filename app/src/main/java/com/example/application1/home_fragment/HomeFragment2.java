@@ -26,4 +26,6 @@ public class HomeFragment2 extends BaseFragment {
     public void initData() {
 
     }
+
+
 }
