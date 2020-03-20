@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
+//import com.bumptech.glide.Glide;
 import com.example.application1.R;
 import com.example.application1.model.HomeTimeLineModel;
 
@@ -42,7 +42,7 @@ public class HomeLineAdapter extends RecyclerView.Adapter<HomeLineAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Glide.with(context).load(homeList.get(position).getUser().getProfile_image_url()).into(holder.imgItemHead);
+//        Glide.with(context).load(homeList.get(position).getUser().getProfile_image_url()).into(holder.imgItemHead);
         holder.tvItemName.setText(homeList.get(position).getUser().getName());
         holder.tvItemContent.setText(homeList.get(position).getText());
         holder.tvItemDate.setText(homeList.get(position).getCreated_at());
@@ -50,7 +50,7 @@ public class HomeLineAdapter extends RecyclerView.Adapter<HomeLineAdapter.ViewHo
         if(TextUtils.isEmpty(homeList.get(position).getBmiddle_pic())){
             holder.imgItemContent.setVisibility(View.GONE);
         }else{
-            Glide.with(context).load(homeList.get(position).getBmiddle_pic()).into(holder.imgItemContent);
+//            Glide.with(context).load(homeList.get(position).getBmiddle_pic()).into(holder.imgItemContent);
         }
 
         holder.tvItemFoot1.setText(homeList.get(position).getReposts_count()+"");
