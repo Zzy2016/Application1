@@ -42,7 +42,7 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecommendAdapter.View
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         holder.tvItem.setText(recommendList.get(position).getTitle());
-        Glide.with(context).load(recommendList.get(position).getPic()).into(holder.imageItem);
+//        Glide.with(context).load(recommendList.get(position).getPic()).into(holder.imageItem);
         holder.tvNumLeft.setText(recommendList.get(position).getPlay() + "");
         holder.tvNumRight.setText(recommendList.get(position).getFavorites() + "");
 

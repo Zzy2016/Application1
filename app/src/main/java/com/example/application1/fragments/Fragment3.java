@@ -118,10 +118,6 @@ public class Fragment3 extends Fragment {
         tv3 = view.findViewById(R.id.tv3);
 
         imageUser=view.findViewById(R.id.image_user);
-
-
-
-
         initData();
     }
 
@@ -134,7 +130,6 @@ public class Fragment3 extends Fragment {
                 case 0:
                     tvUserName.setText(userInfoModel.getScreen_name());
                     tvUserAdd.setText(userInfoModel.getDescription());
-
                     tv1.setText(userInfoModel.getStatuses_count() + "");
                     tv2.setText(userInfoModel.getFriends_count() + "");
                     tv3.setText(userInfoModel.getFollowers_count() + "");
@@ -147,10 +142,7 @@ public class Fragment3 extends Fragment {
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
-
         if (!hidden) {
-            Log.e("---------", hidden + "");
-
             initData();
         }
     }
