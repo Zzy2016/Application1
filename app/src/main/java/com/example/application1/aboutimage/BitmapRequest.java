@@ -22,9 +22,6 @@ public class BitmapRequest {
         return imageView;
     }
 
-    public void setImageView(SoftReference<ImageView> imageView) {
-        this.imageView = imageView;
-    }
 
     public BitmapRequest(Context context) {
         this.context = context;
