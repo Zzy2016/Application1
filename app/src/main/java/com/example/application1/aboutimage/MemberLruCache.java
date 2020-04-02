@@ -4,9 +4,6 @@ package com.example.application1.aboutimage;
 import android.graphics.Bitmap;
 import android.util.LruCache;
 
-import java.lang.ref.SoftReference;
-import java.util.HashMap;
-
 /**
  * @author: Administrator
  * @date: 2020-03-20

@@ -65,41 +65,18 @@ public class Fragment3 extends Fragment {
     public void initData() {
 
 
-        new Thread(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        String result = PostAndGet.doGetHttp(path);
-                        userInfoModel = gson.fromJson(result, UserInfoModel.class);
-                        handler.sendEmptyMessage(0);
-                        Log.e("-----", result);
-                    }
-                }
-        ).start();
-
-
-//        okHttpClient = new OkHttpClient();
-//        request = new Request.Builder().url(path).get().build();
-//        call = okHttpClient.newCall(request);
-//        call.enqueue(new Callback() {
-//            @Override
-//            public void onFailure(Call call, IOException e) {
-//                Log.e("----1", e.toString());
-//            }
-//
-//            @Override
-//            public void onResponse(Call call, Response response) throws IOException {
-//                if (response.isSuccessful()) {
-//                    String result = response.body().string();
-//                    homeTimeLineModel = gson.fromJson(result, HomeTimeLineModel.class);
-//
-//
-//                } else {
-//                    Toast.makeText(getContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
+//        new Thread(
+//                new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        String result = PostAndGet.doGetHttp(path);
+//                        userInfoModel = gson.fromJson(result, UserInfoModel.class);
+//                        handler.sendEmptyMessage(0);
+//                        Log.e("-----", result);
+//                    }
 //                }
-//                Log.e("----0", response.body().string());
-//            }
-//        });
+//        ).start();
+
     }
 
 

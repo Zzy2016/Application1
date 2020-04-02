@@ -1,6 +1,7 @@
 package com.example.application1.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
@@ -8,13 +9,22 @@ import android.widget.RadioGroup;
 
 import com.example.application1.R;
 import com.example.application1.fragments.Fragment0;
+import com.example.application1.fragments.Fragment1;
 import com.example.application1.fragments.Fragment2;
 import com.example.application1.fragments.Fragment3;
-import com.example.application1.fragments.Fragment1;
+import com.example.application1.utils.BaseCallback;
+import com.example.application1.utils.OkHttpHelper;
+
+import java.io.IOException;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,12 +62,35 @@ public class MainActivity extends AppCompatActivity {
 
         changePage(0);
 
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                PostAndGet.doGetHttp(Constants.path);
-////            }
-//        }).start();
+        String path = "";
+
+        OkHttpClient okHttpClient = new OkHttpClient();
+        Request request = new Request.Builder().get().url(path).build();
+        Call call = okHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e("2---", e.toString());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) {
+                if (response.isSuccessful()) {
+                    try {
+                        String result = response.body().string();
+                        Log.e("0---", result);
+                    } catch (Exception e) {
+
+                    }
+
+                } else {
+                    Log.e("0---", "123");
+                }
+            }
+        });
+
+
+
     }
 
     public void changePage(int index) {

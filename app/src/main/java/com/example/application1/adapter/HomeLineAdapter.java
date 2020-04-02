@@ -1,7 +1,11 @@
 package com.example.application1.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.BackgroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,18 +48,26 @@ public class HomeLineAdapter extends RecyclerView.Adapter<HomeLineAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 //        Glide.with(context).load(homeList.get(position).getUser().getProfile_image_url()).into(holder.imgItemHead);
         holder.tvItemName.setText(homeList.get(position).getUser().getName());
-        holder.tvItemContent.setText(homeList.get(position).getText());
+
         holder.tvItemDate.setText(homeList.get(position).getCreated_at());
 
-        if(TextUtils.isEmpty(homeList.get(position).getBmiddle_pic())){
+        if (TextUtils.isEmpty(homeList.get(position).getBmiddle_pic())) {
             holder.imgItemContent.setVisibility(View.GONE);
-        }else{
+        } else {
 //            Glide.with(context).load(homeList.get(position).getBmiddle_pic()).into(holder.imgItemContent);
         }
 
-        holder.tvItemFoot1.setText(homeList.get(position).getReposts_count()+"");
-        holder.tvItemFoot2.setText(homeList.get(position).getAttitudes_count()+"");
-        holder.tvItemFoot3.setText(homeList.get(position).getComments_count()+"");
+        holder.tvItemFoot1.setText(homeList.get(position).getReposts_count() + "");
+        holder.tvItemFoot2.setText(homeList.get(position).getAttitudes_count() + "");
+        holder.tvItemFoot3.setText(homeList.get(position).getComments_count() + "");
+
+
+        String content = homeList.get(position).getText();
+        SpannableString spannableString = new SpannableString(homeList.get(position).getText());
+        BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(Color.parseColor("#248cfa"));
+        spannableString.setSpan(backgroundColorSpan,content.indexOf("#"),content.lastIndexOf("#"), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        holder.tvItemContent.setText(spannableString);
 
     }
 
@@ -64,7 +76,7 @@ public class HomeLineAdapter extends RecyclerView.Adapter<HomeLineAdapter.ViewHo
         return homeList.size();
     }
 
-    public void addList(List<HomeTimeLineModel.StatusesBean> list){
+    public void addList(List<HomeTimeLineModel.StatusesBean> list) {
         homeList.addAll(list);
         notifyDataSetChanged();
     }

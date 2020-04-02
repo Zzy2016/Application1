@@ -44,11 +44,7 @@ public class HomeFragment1 extends BaseFragment {
         adapter = new RecommendAdapter(recommendList, getContext());
         rvList.setAdapter(adapter);
         rvList.setLayoutManager(new GridLayoutManager(getContext(), 2));
-//        FlexboxLayoutManager flexboxLayoutManager=new FlexboxLayoutManager();
-//        flexboxLayoutManager.setFlexDirection(FlexDirection.ROW);
-//        flexboxLayoutManager.setFlexWrap(FlexWrap.WRAP);
-//        flexboxLayoutManager.setAlignItems(AlignItems.STRETCH);
-//        rvList.setLayoutManager(flexboxLayoutManager);
+
     }
 
 

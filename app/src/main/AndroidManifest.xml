@@ -16,16 +16,21 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".activity.SetActivity">
+
+        </activity>
+        <activity android:name=".activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.LoginActivity">
-
-        </activity>
         <activity android:name=".activity.MainActivity"></activity>
     </application>
 
+
+    <!-- App Key   536109549  -->
+    <!--  App Secret  d813c25bcc53c50ff15cb079e4926ebb-->
+    <!--54:F9:5D:62:68:A0:24:E6:46:97:8A:0C:4C:CA:64:14  54f95d6268a024e646978a0c4cca6414  win
+                                                         717e97370e2ca679f31afb06d3b9b66e  -->
 </manifest>
